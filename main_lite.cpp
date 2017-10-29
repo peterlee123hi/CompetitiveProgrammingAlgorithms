@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
-using namespace std;
+#define rep(i,a,n) for(int i=a;i<n;i++)
+#define sz(x) ((x).size())
 #define pb push_back
+using namespace std;
 const int INF = 1<<29;
 typedef long long ll;
-typedef vector<int> vi;
 typedef pair<int, int> ii;
+typedef vector<int> vi;
 typedef vector<ii> vii;
 
 // Global variables here...
