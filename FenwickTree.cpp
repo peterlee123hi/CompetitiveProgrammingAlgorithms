@@ -1,7 +1,6 @@
-#include <vector>
+#include <bits/stdc++.h>
 #define sz(x) ((int)(x).size())
 #define rep(i,a,n) for(int i=a;i<n;i++)
-#define LSOne(S) (S&-S)
 using namespace std;
 typedef vector<int> vi;
 
@@ -9,26 +8,28 @@ class FenwickTree {
 private: vi ft;
 public:
 	FenwickTree(int n) {
-		ft.assign(n+1,0);
+		ft.assign(n + 1,0);
 	}
 
-	int rsq(int q) {
-		int sum = 0;
-		while(q > 0) {
-			sum += ft[q];
-			q -= LSOne(q);
+	int count(int x) {
+        x++;
+		int c = 0;
+		while(x > 0) {
+			c += ft[x];
+            x += x & -x;
 		}
-		return sum;
+		return c;
 	}
 
-	int rsq(int a, int b) {
-		return rsq(b) - rsq(a - 1);
+	int count(int a, int b) {
+		return count(b) - count(a - 1);
 	}
 
-	void adjust(int k, int v) {
-		while(k < sz(ft)) {
-			ft[k] += v;
-			k += LSOne(k);
+	void inc(int x, int count) {
+        x++;
+		while(x < sz(ft)) {
+            ft[x] += count;
+            x += x & -x;
 		}
 	}
 };
