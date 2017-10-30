@@ -22,7 +22,8 @@ public:
 	}
 
 	int count(int a, int b) {
-		return count(b) - count(a - 1);
+        if (a == 0) return count(b);
+        else return count(b) - count(a - 1);
 	}
 
 	void inc(int x, int count) {
