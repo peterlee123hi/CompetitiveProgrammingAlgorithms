@@ -24,11 +24,11 @@ public:
 		if(!isSameSet(i, j)) {
 			int x = findSet(i), y = findSet(j);
 			if(rank[x] < rank[y]) {
-				p[x] = p[y];
+				p[x] = y;
 			} else {
-				p[y] = p[x];
+				p[y] = x;
 				if(rank[x] == rank[y])
-					rank[y]++;
+					rank[x]++;
 			}
 		}
 	}
